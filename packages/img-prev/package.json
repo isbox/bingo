@@ -1,0 +1,29 @@
+{
+  "name": "img-prev",
+  "version": "0.0.0",
+  "description": "bingo / component for image preview",
+  "keywords": [
+    "img",
+    "preview",
+    "web management background"
+  ],
+  "author": "zhanghaoran <thereisbox@foxmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6"
+  }
+}
