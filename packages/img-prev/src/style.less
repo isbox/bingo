@@ -1,3 +1,5 @@
+@import '../../../public/style/base.less';
+
 .img-priview__mask {
   width: 100%;
   height: 100%;
@@ -15,13 +17,55 @@
     background: rgba(0, 0, 0, .7);
   }
 
+  &.mask-closing {
+    animation: fadeOut .3s ease forwards;
+  }
+
   .target-img {
     max-width: 70%;
-    max-height: 90%;  
+    max-height: 90%;
+    transition: transform .3s ease;
+  }
+
+  .control-bar {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    padding: 10px;
+    color: #FFF;
+    transform: translateX(-50%);
+
+    i {
+      font-size: 28px;
+      cursor: pointer;
+      padding: 0 10px;
+    }
+  }
+
+  .closed-icon {
+    font-size: 32px;
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    right: 50px;
+    color: #FFF;
+    cursor: pointer;
+    transition: transform .3s ease;
+    
+    &:hover {
+      transform: rotate(-180deg);
+    }
   }
 
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; transform: scale3d(1, 1, 1); }
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; transform: scale3d(1, 1, 1); }
+    to { opacity: 0; transform: scale3d(0.3, 0.3, 0.3); }
   }
 }
