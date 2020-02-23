@@ -6,13 +6,16 @@
     "lerna": "^3.19.0"
   },
   "dependencies": {
-    "father": "^2.29.0"
+    "commander": "^4.1.1",
+    "father": "^2.29.2"
   },
   "scripts": {
-    "build": "lerna run build",
+    "test:build": "lerna run build",
     "dev": "lerna run dev --parallel",
     "doc:dev": "father doc dev",
     "doc:build": "father doc build",
-    "new": "lerna create"
+    "new": "lerna create",
+    "build": "node ./build.js",
+    "push": "node ./build.js -r"
   }
 }

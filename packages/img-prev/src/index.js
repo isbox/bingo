@@ -1,6 +1,7 @@
 import React, { PureComponent, createRef } from 'react';
 import classnames from 'classnames';
 import styles from './style.less';
+import PropTypes from 'prop-types';
 
 const openStatus = {
   open: 'open',
@@ -70,8 +71,9 @@ export default class ImgsPreview extends PureComponent {
 
   caputreImgsClick = (e) => {
     const { target } = e;
-    if (target.tagName.toLowerCase() === 'img') {
-      const index = Number(target.getAttribute(PREVIEW_INDEX_NAME));
+    const prevIndex = target.getAttribute(PREVIEW_INDEX_NAME);
+    if (target.tagName.toLowerCase() === 'img' && typeof prevIndex === 'string') {
+      const index = Number(prevIndex);
       this.setState({ previewOpen: openStatus.open, index });
       this.listenMouseWhell();
       this.keyboardListener('add'); // 添加键盘监听
@@ -173,20 +175,54 @@ export default class ImgsPreview extends PureComponent {
     }, 300);
   }
 
+  controllBarRender = () => {
+    return this.props.showControllBar
+      ? (
+        <div className={styles.controlBar}>
+          <i
+            className="bingo bingo-minus"
+            onClick={this.scaleBtnClick(-1)}
+          />
+          <i
+            className="bingo bingo-add"
+            onClick={this.scaleBtnClick(1)}
+          />
+          <i
+            className="bingo bingo-refresh"
+            onClick={this.rotateImg}
+          />
+          <i
+            className="bingo bingo-left-arrow"
+            onClick={this.swtichPreviewingImg(-1)}
+          />
+          <i
+            className="bingo bingo-right-arrow"
+            onClick={this.swtichPreviewingImg(1)}
+          />
+        </div>
+      )
+      : null
+  }
+
   render() {
     const { previewOpen, imgs, index } = this.state;
-    const { children, className } = this.props;
+    const { children, className, style = {}, maskClassName, maskStyle = {}, allowMaskClose } = this.props;
 
     return (
       <>
-        <div className={className} ref={this.previewDom}>
+        <div
+          className={className}
+          style={style}
+          ref={this.previewDom}
+        >
           { children instanceof Function ? children(this.caputreImgs) : children }
         </div>
         {
           openStatus[previewOpen] !== openStatus.closed && (
             <div
-              className={classnames(styles.imgPriviewMask, styles.blackMask, { [styles.maskClosing]: previewOpen === openStatus.closing })}
-              onClick={this.previewClose}
+              className={classnames(styles.imgPriviewMask, styles.blackMask, maskClassName, { [styles.maskClosing]: previewOpen === openStatus.closing })}
+              style={maskStyle}
+              onClick={allowMaskClose && this.previewClose}
             >
               <img
                 onWheel={this.listenMouseWhell}
@@ -195,28 +231,9 @@ export default class ImgsPreview extends PureComponent {
                 src={imgs[index].src}
                 alt={imgs[index].src}
               />
-              <div className={styles.controlBar}>
-                <i
-                  className="bingo bingo-minus"
-                  onClick={this.scaleBtnClick(-1)}
-                />
-                <i
-                  className="bingo bingo-add"
-                  onClick={this.scaleBtnClick(1)}
-                />
-                <i
-                  className="bingo bingo-refresh"
-                  onClick={this.rotateImg}
-                />
-                <i
-                  className="bingo bingo-left-arrow"
-                  onClick={this.swtichPreviewingImg(-1)}
-                />
-                <i
-                  className="bingo bingo-right-arrow"
-                  onClick={this.swtichPreviewingImg(1)}
-                />
-              </div>
+              {
+                this.controllBarRender()
+              }
               <i
                 className={classnames(styles.closedIcon, 'bingo bingo-closed')}
                 onClick={this.previewClose}
@@ -229,6 +246,35 @@ export default class ImgsPreview extends PureComponent {
   }
 }
 
-ImgsPreview.propType = {
-  ignoreAttrVal: ''
-}
+ImgsPreview.propTypes = {
+  /** img标签上的attribute名，用于过滤不需要展示的图片 */
+  ignoreAttrName: PropTypes.string,
+  /** jsx，如果为function的话会传递caputreImgs方法，调用该方法可重新遍历组件下的图片dom，用于有新增或删减img dom后更新组件数据 **/
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func
+  ]),
+  /** 包裹children的div className */
+  className: PropTypes.string,
+  /** 包裹children的div style */
+  style: PropTypes.object,
+  /** 蒙层的 className */
+  maskClassName: PropTypes.string,
+  /** 蒙层的 style */
+  maskStyle: PropTypes.object,
+  /** 是否允许点击蒙层关闭，默认：是 */
+  allowMaskClose: PropTypes.bool,
+  /** 是否显示控制栏，默认：是 */
+  showControllBar: PropTypes.bool,
+};
+
+ImgsPreview.defaultProps = {
+  ignoreAttrName: '',
+  children: null,
+  className: '',
+  style: {},
+  maskClassName: '',
+  maskStyle: {},
+  allowMaskClose: true,
+  showControllBar: true,
+};

@@ -1,19 +1,34 @@
+const cssnano = require('cssnano');
+
 module.exports = {
+  entry: './src/index',
   // 使用rollup打包成ES6标准模块输出
   esm: {
     type: 'rollup',
     importLibToEs: true,
     minify: true,
+    file: 'es/index.min',
   },
   // 使用rollup打包成commonjs标准模块输出
   cjs: {
     type: 'rollup',
     minify: true,
-    lazy: true
+    file: 'cjs/index.min',
   },
+  extractCSS: false, // 分离css, not in js
   cssModules: {
     generateScopedName: 'bingo__[name][hash:base64:5]',
-    camelCase: true
+    camelCase: true,
+  },
+  extraPostCSSPlugins: [
+    cssnano(), // css压缩
+  ],
+  autoprefixer: {
+    overrideBrowserslist: [
+      '> 1%',
+      'last 2 versions',
+      'not ie <= 8',
+    ],
   },
   doc: {
     title: '标果组件库',

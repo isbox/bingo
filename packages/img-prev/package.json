@@ -1,15 +1,17 @@
 {
-  "name": "img-prev",
-  "version": "0.0.0",
+  "name": "@bingo/img-prev",
+  "version": "1.0.0",
   "description": "bingo / component for image preview",
   "keywords": [
-    "img",
-    "preview",
-    "web management background"
+    "react",
+    "img preview",
+    "pc"
   ],
   "author": "zhanghaoran <thereisbox@foxmail.com>",
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "dist/cjs/index.min.js",
+  "module": "dist/es/index.min.js",
+  "private": false,
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -18,12 +20,15 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
+    "registry": "http://39.100.136.61:9001"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
     "classnames": "^2.2.6"
+  },
+  "peerDependencies": {
+    "react": ">=16.3"
   }
 }

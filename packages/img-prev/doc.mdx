@@ -1,16 +1,66 @@
 ---
 name: img-prev 图片预览
-menu: web后台管理
+# menu: web后台管理
 route: /img-prev
 # wrapper: Wrapper
 ---
+
+import { Playground, Props } from 'docz';
+
 import ImgsPreview from '../img-prev/src/index.js';
 
-### 这是一个图片预览
+# 图片预览组件
 
-<>
-  <ImgsPreview>
-    <img width="300" src="http://attach.bbs.miui.com/forum/201304/25/195151szk8umd8or8fmfa5.jpg" />
-    <img width="300" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581183988008&di=d132c07088a65668e8ddb0818758a311&imgtype=0&src=http%3A%2F%2Ft8.baidu.com%2Fit%2Fu%3D2247852322%2C986532796%26fm%3D79%26app%3D86%26f%3DJPEG%3Fw%3D1280%26h%3D853" />
+<br/>
+
+**目录：**
+packages/img-prev
+
+<br/>  
+
+使用方式
+```
+yarn add @bingo/img-prev
+或
+npm install @bingo/img-prev
+```   
+
+<br/>
+
+## Demo
+<Playground inCenter>
+  <ImgsPreview
+    ignoreAttrName="data-ignore"
+    style={{
+      display: 'flex',
+      alignItems: 'flex-start',
+    }}
+  >
+    <div style={{display: 'inline-block'}}>
+      <img
+        width="300"
+        height="200"
+        src="http://t9.baidu.com/it/u=583874135,70653437&fm=79&app=86&f=JPEG?w=3607&h=2408"
+        data-ignore="1"
+      />
+      <p>我是带有ignoreAttrName标识，无法预览</p>
+    </div>
+    <div style={{display: 'inline-block'}}>
+      <img
+        width="300"
+        height="200"
+        src="http://attach.bbs.miui.com/forum/201304/25/195151szk8umd8or8fmfa5.jpg"
+      />
+    </div>
+    <div style={{display: 'inline-block'}}>
+      <img
+        width="300"
+        height="200"
+        src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581183988008&di=d132c07088a65668e8ddb0818758a311&imgtype=0&src=http%3A%2F%2Ft8.baidu.com%2Fit%2Fu%3D2247852322%2C986532796%26fm%3D79%26app%3D86%26f%3DJPEG%3Fw%3D1280%26h%3D853"
+      />
+    </div>
   </ImgsPreview>
-</>
+</Playground>
+
+## Props
+<Props of={ImgsPreview} />
