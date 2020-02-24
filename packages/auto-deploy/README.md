@@ -1,11 +1,11 @@
-# `stable`
+# `auto-deploy`
 
 > TODO: description
 
 ## Usage
 
 ```
-const stable = require('stable');
+const autoDeploy = require('auto-deploy');
 
 // TODO: DEMONSTRATE API
 ```

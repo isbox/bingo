@@ -5,7 +5,7 @@ const colors = require('colors'); // console带颜色输出
 
 // 执行打包
 const fatherBuild = function() {
-  const fatherBuild = spawnSync('yarn', ['build'], {
+  const fatherBuild = spawnSync('father', ['build'], {
     shell: process.platform === 'win32', // win兼容
   });
   const { stderr, stdout } = fatherBuild;

@@ -32,6 +32,7 @@ module.exports = {
   },
   doc: {
     title: '标果组件库',
+    version: '1.0.0',
     typescript: false,
     notUseSpecifiers: true,
     theme: 'docz-theme-ztopia',

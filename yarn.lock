@@ -6513,6 +6513,11 @@ commander@^4.0.0, commander@^4.0.1:
   resolved "https://registry.npm.taobao.org/commander/download/commander-4.0.1.tgz?cache=0&sync_timestamp=1573464045808&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-4.0.1.tgz#b67622721785993182e807f4883633e6401ba53c"
   integrity sha1-tnYicheFmTGC6Af0iDYz5kAbpTw=
 
+commander@^4.1.1:
+  version "4.1.1"
+  resolved "http://39.100.136.61:9001/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
+  integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
+
 commander@~2.19.0:
   version "2.19.0"
   resolved "https://registry.npm.taobao.org/commander/download/commander-2.19.0.tgz?cache=0&sync_timestamp=1573464045808&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
@@ -9253,10 +9258,10 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.0"
 
-father-build@1.17.0:
-  version "1.17.0"
-  resolved "https://registry.npm.taobao.org/father-build/download/father-build-1.17.0.tgz#efa76853ec1d6a73d3cff269d9c78d08c5805b6d"
-  integrity sha1-76doU+wdanPTz/Jp2ceNCMWAW20=
+father-build@1.17.2:
+  version "1.17.2"
+  resolved "http://39.100.136.61:9001/father-build/-/father-build-1.17.2.tgz#a9a9af3150e777fb4a7789486549efb6cd9a0219"
+  integrity sha512-9o+fgQDIhhhez1XCyWYZQlgwnpGxM6bhmdlR2SWy1BZSBF3ppSoDrEWFRoFeoFsz5uKamcwDASKDoF2PVUNHjQ==
   dependencies:
     "@babel/core" "7.4.5"
     "@babel/plugin-proposal-class-properties" "7.4.4"
@@ -9295,7 +9300,7 @@ father-build@1.17.0:
     rollup-plugin-node-resolve "5.0.1"
     rollup-plugin-postcss-umi "2.0.3"
     rollup-plugin-replace "2.2.0"
-    rollup-plugin-terser "5.0.0"
+    rollup-plugin-terser "5.1.3"
     rollup-plugin-typescript2 "0.25.3"
     rollup-plugin-url "^2.2.2"
     signale "1.4.0"
@@ -9308,10 +9313,10 @@ father-build@1.17.0:
     vinyl-fs "3.0.3"
     yargs-parser "13.1.1"
 
-father@^2.29.0:
-  version "2.29.0"
-  resolved "https://registry.npm.taobao.org/father/download/father-2.29.0.tgz#5e61f85de6a69163f2d75de301558f14f47a7e76"
-  integrity sha1-XmH4XeamkWPy113jAVWPFPR6fnY=
+father@^2.29.2:
+  version "2.29.2"
+  resolved "http://39.100.136.61:9001/father/-/father-2.29.2.tgz#b77cfc782cb65a8f640cc68286323d3901760162"
+  integrity sha512-bPnX7FCf/CjA1H6StEbBZzYSke+sc3sSeGx9yy7QTIiPz8ED7iJd8QzOOQUwwYAWZY3KUjJAnDZcf998f7SCcA==
   dependencies:
     "@babel/plugin-proposal-decorators" "7.4.4"
     "@storybook/addon-a11y" "^5.2.6"
@@ -9351,7 +9356,7 @@ father@^2.29.0:
     eslint-plugin-promise "^4.1.1"
     eslint-plugin-react "^7.12.4"
     eslint-plugin-unicorn "^8.0.1"
-    father-build "1.17.0"
+    father-build "1.17.2"
     fs-extra "^8.0.1"
     gh-pages "2.0.1"
     lodash "4.17.13"
@@ -17934,15 +17939,16 @@ rollup-plugin-replace@2.2.0:
     magic-string "^0.25.2"
     rollup-pluginutils "^2.6.0"
 
-rollup-plugin-terser@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.npm.taobao.org/rollup-plugin-terser/download/rollup-plugin-terser-5.0.0.tgz?cache=0&sync_timestamp=1576116989271&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frollup-plugin-terser%2Fdownload%2Frollup-plugin-terser-5.0.0.tgz#ac50fdb703b580447a7e6b1692aeed515a6be8cf"
-  integrity sha1-rFD9twO1gER6fmsWkq7tUVpr6M8=
+rollup-plugin-terser@5.1.3:
+  version "5.1.3"
+  resolved "http://39.100.136.61:9001/rollup-plugin-terser/-/rollup-plugin-terser-5.1.3.tgz#5f4c4603b12b4f8d093f4b6f31c9aa5eba98a223"
+  integrity sha512-FuFuXE5QUJ7snyxHLPp/0LFXJhdomKlIx/aK7Tg88Yubsx/UU/lmInoJafXJ4jwVVNcORJ1wRUC5T9cy5yk0wA==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     jest-worker "^24.6.0"
-    serialize-javascript "^1.7.0"
-    terser "^4.0.0"
+    rollup-pluginutils "^2.8.1"
+    serialize-javascript "^2.1.2"
+    terser "^4.1.0"
 
 rollup-plugin-typescript2@0.25.3:
   version "0.25.3"
@@ -18196,11 +18202,6 @@ serialize-error@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/serialize-error/download/serialize-error-2.1.0.tgz#50b679d5635cdf84667bdc8e59af4e5b81d5f60a"
   integrity sha1-ULZ51WNc34Rme9yOWa9OW4HV9go=
-
-serialize-javascript@^1.7.0:
-  version "1.9.1"
-  resolved "https://registry.npm.taobao.org/serialize-javascript/download/serialize-javascript-1.9.1.tgz?cache=0&sync_timestamp=1575883256113&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fserialize-javascript%2Fdownload%2Fserialize-javascript-1.9.1.tgz#cfc200aef77b600c47da9bb8149c943e798c2fdb"
-  integrity sha1-z8IArvd7YAxH2pu4FJyUPnmML9s=
 
 serialize-javascript@^2.1.2:
   version "2.1.2"
@@ -19516,7 +19517,16 @@ terser-webpack-plugin@^1.2.0, terser-webpack-plugin@^1.2.3, terser-webpack-plugi
     webpack-sources "^1.4.0"
     worker-farm "^1.7.0"
 
-terser@^4.0.0, terser@^4.1.2, terser@^4.3.9:
+terser@^4.1.0:
+  version "4.6.3"
+  resolved "http://39.100.136.61:9001/terser/-/terser-4.6.3.tgz#e33aa42461ced5238d352d2df2a67f21921f8d87"
+  integrity sha512-Lw+ieAXmY69d09IIc/yqeBqXpEQIpDGZqT34ui1QWXIUpR2RjbqEkT8X7Lgex19hslSqcWM5iMN2kM11eMsESQ==
+  dependencies:
+    commander "^2.20.0"
+    source-map "~0.6.1"
+    source-map-support "~0.5.12"
+
+terser@^4.1.2, terser@^4.3.9:
   version "4.4.2"
   resolved "https://registry.npm.taobao.org/terser/download/terser-4.4.2.tgz#448fffad0245f4c8a277ce89788b458bfd7706e8"
   integrity sha1-RI//rQJF9Miid86JeItFi/13Bug=

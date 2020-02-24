@@ -8,21 +8,82 @@ route: /
 # 标果组件库
 
 ## ReadMe
-该文档为`标果工厂组件库`文档中心，文档里归纳了已有组件的用法文档，组件参数，方法   
+该文档为 `标果工厂组件库` 文档中心，文档里归纳了已有组件的用法文档，组件参数，方法   
 组件库文档与组件库存在于同一项目
 
-**操作指南**   
 
-我如何使用组件库
-组件库的组件会发布到http://39.100.136.61:9001/仓库中   
+## 操作指南
 
-先设置自己的npm | yarn的registry=[仓库地址]   
-查看自己需要的组件，更具文档提示安装及使用   
+**如何使用组件库**   
+
+组件库的组件会发布到 http://39.100.136.61:9001/ 仓库中   
+
+项目拉下来后运行 `lerna bootstrap` 安装所有依赖，包含packages下的所有组件依赖
+   
+通过`yarn doc:dev`可以启动文档，本地访问 http://127.0.0.1:8001/ 可以看到组件使用文档
+
+<br />
+<br />
+
+**如何进行组件开发**   
+
+> 每一个组件都必须有一个使用说明的文档，此项目使用docz.js，请在组件目录建立doc.mdx来书写
+> mdx除了可以使用markdown语法，还可以直接书react写组件代码(vue暂未尝试)
+> 具体文档写法及如何使用docz提供功能更好的生成文档可以参考本项目 img-prev 组件及
+
+运行 `yarn new | npm run new [name]` 会初始化一个新的文件夹在./packages目录中   
+根据提示走完后找到目录下的package.json
+```json
+"publishConfig": {
+  "registry": "http://39.100.136.61:9001"
+}
+```
+修改 `registry` 为自己的仓库地址     
+
+如果开发的组件有依赖其他框架，如 `react, antd` 等，又不希望在组件在打包时带上这些，请修改组件目录下package.json中的peerDependencies
+```json
+"peerDependencies": {
+  "react": ">=16.3"
+}
+```
+
+组件打包会以cjs(commonjs)，和esm(es module)两种方式进行，会在组件当前目录下生成如下目录
+```
+component
+  - dist
+    - cjs
+    - es
+```
+为了在项目中能够更好的发挥tree-shaking功能，在组件目录package.json中请加上
+```json
+"module": "dist/es/index.min.js"
+```
+
+<br />
+<br />
+
+**如何调试我的组件**
+
+react组件可以直接在doc.mdx中调试  
+
+也可以使用 `yarn link | npm link` 来进行组件调试，参考[随便找的介绍](https://juejin.im/entry/5b33305be51d4558d43fddfd)
 
 
-通过`yarn doc:dev`可以启动文档
 
-组件库项目地址为：
+<br />
+<br />
 
+**如何打包我的组件**
 
+不建议一次打包所有的组件，使用命令`yarn build [name]`可以打包组件，name为自己组件文件夹名子   
+
+如果要打包多个组件，使用`yarn build [name,name,name...]`逗号之间不要留空，否则无法识别
+
+<br />
+<br />
+
+**如何发布我的组件**
+
+1. 确定组件package.json中的发布地址为目标仓库 http://39.100.136.61:9001/ 
+2. 运行 `yarn publish [name,name,name]` 参数与打包参数相同 
 

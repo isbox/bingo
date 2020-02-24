@@ -15,7 +15,7 @@
     "doc:dev": "father doc dev",
     "doc:build": "father doc build",
     "new": "lerna create",
-    "build": "node ./build.js",
-    "push": "node ./build.js -r"
+    "build": "node ./build.js -p",
+    "push": "node ./build.js -r -p"
   }
 }
